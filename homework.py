@@ -1,5 +1,30 @@
 import re
 
+
+with open('./names.txt') as g:
+    data1 = g.readlines()
+
+
+fullname = re.compile('([A-Z][a-zA-Z]+,) ([A-Z][a-zA-Z]+(-[A-Z][a-zA-Z]+)*)')
+
+twitter = re.compile('(@[a-z]+)$')
+
+for line in data1:
+    display = twitter.search(line)
+    display2 = fullname.search(line)
+    if display:
+        print('\n'f"{display2.group(2)} {display2.group(1)} / {display.group(1)}")
+        
+
+
+
+
+
+
+
+
+
+
 with open('./regex_test.txt') as f:
     data = f.readlines()
     print(data)
